@@ -1,7 +1,10 @@
-var http = require('http');
+var express = require('express');
 
-var server = http.createServer(function(req, res) {
-  res.writeHead(200);
-  res.end('Salut tout le monde !');
+var app = express();
+
+app.get('/', function(req, res) {
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Vous êtes à l\'accueil');
 });
-server.listen(80);
+
+app.listen(80);

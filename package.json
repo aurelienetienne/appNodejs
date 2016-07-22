@@ -1,0 +1,10 @@
+{
+    "name": "appNodejs",
+    "version": "0.1.0",
+    "dependencies": {
+        "express": "~4.11.0",
+        "ejs": "~2.1.4"
+    },
+    "author": "Aurel",
+    "description": "Une application nodejs"
+}
