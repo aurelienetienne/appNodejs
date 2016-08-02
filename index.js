@@ -1,20 +1,29 @@
-var express = require('express');
-var app = express();
-
-app.set('port', (process.env.PORT || 5000));
-
-app.use(express.static(__dirname + '/public'));
-
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-
-app.get('/', function(request, response) {
-  response.render('pages/index');
+var express     = require('express');
+var app         = express();
+var bodyParser  = require('body-parser');
+var morgan      = require('morgan');
+var mongoose    = require('mongoose');
+var passport	= require('passport');
+var config      = require('./config/database'); // get db config file
+var User        = require('./app/models/user'); // get the mongoose model
+var port        = process.env.PORT || 8080;
+var jwt         = require('jwt-simple');
+ 
+// get our request parameters
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+ 
+// log to console
+app.use(morgan('dev'));
+ 
+// Use the passport package in our application
+app.use(passport.initialize());
+ 
+// demo Route (GET http://localhost:8080)
+app.get('/', function(req, res) {
+  res.send('Hello! The API is at http://localhost:' + port + '/api');
 });
-
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
-});
-
-
+ 
+// Start the server
+app.listen(port);
+console.log('There will be dragons: http://localhost:' + port);
