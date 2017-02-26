@@ -16,20 +16,4 @@
 			</periodes>
 		</parSemaine>
 	</cours>
-	<cours classe="A-1a">
-		<nom></nom>
-		<responsable>
-			<uid></uid>
-		</responsable>
-		<salles>
-			<salle></salle>
-		</salles>
-		<parSemaine>
-			<jour sort="a">Lundi</jour>
-			<periodes>
-				<periode>19:00-19:45</periode>
-				<periode>19:50-20:35</periode>
-			</periodes>
-		</parSemaine>
-	</cours>
   </horaire>
